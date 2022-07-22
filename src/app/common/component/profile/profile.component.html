@@ -1,0 +1,26 @@
+
+
+
+<ion-content>
+  <div class="main_content_div">
+    <ion-list>
+      <ion-item>
+        <ion-icon  name="person"></ion-icon>
+        <ion-label [routerLink]="['../user-info']"  > {{ 'profile.basic' | translate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="home"></ion-icon>
+        <ion-label [routerLink]="['../user-address']"> {{ 'profile.location' | translate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="shield-half-outline"></ion-icon>
+        <ion-label [routerLink]="['../user-password']"> {{ 'profile.change' | translate }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="map-outline"></ion-icon>
+        <ion-label>About Us</ion-label>
+      </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>

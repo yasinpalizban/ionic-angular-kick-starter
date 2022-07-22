@@ -1,0 +1,70 @@
+
+<ion-content>
+  <div class="main_content_div">
+
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
+      <app-alert></app-alert>
+
+      <ion-item>
+        <ion-label>{{ 'filed.group' | translate }}</ion-label>
+        <ion-select (change)="onChangeGroup($event)" interface="action-sheet" class="custom-options">
+          <ion-select-option *ngFor="let group of this.groupRows?.data; let i=index"
+                             value="{{group.id}}">{{group.name}}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'filed.permissionId' | translate }}</ion-label>
+        <ion-select formControlName="permissionId" interface="action-sheet" class="custom-options">
+          <ion-select-option *ngFor="let group of this.permissionRows?.data; let i=index"
+                             value="{{group.id}}">{{group.name}}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'filed.userName' | translate }}</ion-label>
+        <ion-select formControlName="permissionId" interface="action-sheet" class="custom-options">
+          <ion-select-option *ngFor="let user of this.usersRows?.data; let i=index"
+                             value="{{user.id}}">{{user.username+' ('+user.firstName+'  '+user.lastName+ ')'}}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+      <ion-list>
+
+        <ion-label>{{ 'filed.actions' | translate }}</ion-label>
+
+        <ion-item>
+          <ion-label>Get</ion-label>
+          <ion-toggle slot="start" name="get" color="tertiary" value="-get"
+                      (change)="onCheckboxChange($event)"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Post</ion-label>
+          <ion-toggle slot="start" name="post" color="success" value="-post"
+                      (change)="onCheckboxChange($event)"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Put</ion-label>
+          <ion-toggle slot="start" name="put" color="warning" value="-put"
+                      (change)="onCheckboxChange($event)"></ion-toggle>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Delete</ion-label>
+          <ion-toggle slot="start" name="delete" value="-delete" color="danger"
+                      (change)="onCheckboxChange($event)"></ion-toggle>
+        </ion-item>
+
+      </ion-list>
+
+
+    </form>
+
+  </div>
+</ion-content>
+

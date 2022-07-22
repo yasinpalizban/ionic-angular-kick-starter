@@ -1,0 +1,10 @@
+
+
+
+<ion-item *ngFor="let alert of alerts"  class="fade-in-text" color="danger">
+
+  <ion-text >
+    <p *ngFor="let body of (alert.body);let i=index;">{{body }}</p>
+  </ion-text>
+</ion-item>
+

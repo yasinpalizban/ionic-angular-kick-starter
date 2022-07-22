@@ -1,0 +1,55 @@
+
+<ion-content>
+  <div  class="main_content_div">
+    <ion-list>
+      <ion-item>
+        <ion-select  (ionChange)="onChangeGroup($event)" [interfaceOptions]="customAlertOptions" interface="alert" placeholder="{{ 'filed.group'|translate}}">
+          <ion-select-option    *ngFor="let group of this.groupRows?.data;"  value="{{group.name}}">{{group.name}}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+      <ion-item *ngFor="let item of this.userRows?.data; let i = index"
+                (click)="onDetailItem(item.id)"
+                (press)="onOpenModal(item.id, i)"
+      >
+        <ion-label color="primary">
+          <h1>{{item.username}}</h1>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-fab   vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['../add']" >
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+
+  </div>
+
+
+  <ion-modal trigger="open-modal"  >
+    <ng-template>
+      <ion-content class="x" >
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button size="small" shape="round"  (click)="onEditItem()"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button size="small" shape="round"  (click)="onAlert()" [strong]="true"><ion-icon name="trash-sharp"></ion-icon></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button size="small" shape="round"  (click)="onDetailItem()" [strong]="true"><ion-icon name="information-sharp"></ion-icon></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button size="small" shape="round"   (click)="onCancelModal()" [strong]="true"><ion-icon name="close-sharp"></ion-icon></ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

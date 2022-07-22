@@ -1,0 +1,45 @@
+
+<ion-content>
+  <div class="main_content_div">
+
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
+      <app-alert></app-alert>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.userName' | translate }}</ion-label>
+        <ion-input formControlName="userName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.email' | translate }}</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.phone' | translate }}</ion-label>
+        <ion-input formControlName="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position="floating">{{ 'filed.firstName' | translate }}</ion-label>
+        <ion-input formControlName="firstName"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position="floating">{{ 'filed.lastName' | translate }}</ion-label>
+        <ion-input formControlName="lastName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'filed.group' | translate }}</ion-label>
+        <ion-select    formControlName="groupId" interface="action-sheet" class="custom-options">
+          <ion-select-option  *ngFor="let group of this.groupRows?.data; let i=index" value="{{group.id}}">{{group.name}}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.password' | translate }}</ion-label>
+        <ion-input formControlName="password"></ion-input>
+      </ion-item>
+
+    </form>
+
+  </div>
+</ion-content>

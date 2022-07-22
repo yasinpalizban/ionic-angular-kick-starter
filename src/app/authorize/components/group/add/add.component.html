@@ -1,0 +1,24 @@
+
+<ion-content>
+  <div class="main_content_div">
+
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
+      <app-alert></app-alert>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.name' | translate }}</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.description' | translate }}</ion-label>
+        <ion-input formControlName="description"></ion-input>
+      </ion-item>
+
+    </form>
+
+  </div>
+</ion-content>
+

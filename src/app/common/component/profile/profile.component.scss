@@ -1,0 +1,25 @@
+.main_content_div {
+
+  padding-top: 30px;
+
+
+  ion-list {
+    ion-icon {
+
+      color: #ccc !important;
+      padding: 10px;
+    }
+
+    ion-item {
+      --padding-start: 0px;
+      margin-top: 16px;
+      ion-label {
+        display: block;
+      }
+    }
+
+
+  }
+
+
+}

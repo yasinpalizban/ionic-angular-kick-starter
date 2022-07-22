@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-button (click)="goBack()" fill="clear" slot="start">
+      <ion-icon name="arrow-back" style="font-size: 26px;color: black"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="main_content_div">
+
+    <ion-label class="welcome_lbl"> {{ 'auth.resetPassword' | translate }}</ion-label>
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="fromGroup">
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.phone' | translate }}</ion-label>
+        <ion-input  formControlName="phone" required></ion-input>
+      </ion-item>
+      <div class="validator-error"
+           *ngIf=" !submitted &&fromGroup.controls.phone.dirty ||fromGroup.controls.phone.touched">
+           <span class="ion-invalid-message" *ngIf="fromGroup.controls.phone.errors">
+      {{ 'common.required' | translate }}
+         </span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.code' | translate }}</ion-label>
+        <ion-input formControlName="code" required></ion-input>
+      </ion-item>
+      <div class="validator-error"
+           *ngIf=" !submitted &&fromGroup.controls.code.dirty ||fromGroup.controls.code.touched">
+           <span class="ion-invalid-message" *ngIf="fromGroup.controls.code.errors">
+      {{ 'common.required' | translate }}
+         </span>
+      </div>
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.password' | translate }}</ion-label>
+        <ion-input formControlName="password" required></ion-input>
+      </ion-item>
+      <div class="validator-error"
+           *ngIf=" !submitted &&fromGroup.controls.password.dirty ||fromGroup.controls.password.touched">
+           <span class="ion-invalid-message" *ngIf="fromGroup.controls.password.errors">
+      {{ 'common.required' | translate }}
+         </span>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.passwordConfirm' | translate }}</ion-label>
+        <ion-input formControlName="passConfirm" required></ion-input>
+      </ion-item>
+      <div class="validator-error"
+           *ngIf=" !submitted &&fromGroup.controls.passConfirm.dirty ||fromGroup.controls.passConfirm.touched">
+           <span class="ion-invalid-message" *ngIf="fromGroup.controls.passConfirm.errors?.required">
+      {{ 'common.required' | translate }}
+         </span>
+
+        <span class="ion-invalid-message" *ngIf="fromGroup.controls.passConfirm.errors?.mustMatch">
+      {{ 'common.notEqual' | translate }}
+         </span>
+      </div>
+
+      <ion-button expand="block" shape="round">
+        {{ 'auth.reset' | translate }}
+      </ion-button>
+
+
+    </form>
+  </div>
+</ion-content>
+
+
+

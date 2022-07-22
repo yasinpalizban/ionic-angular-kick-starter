@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-button (click)="goBack()" fill="clear" slot="start">
+      <ion-icon name="arrow-back" style="font-size: 26px;color: black"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="main_content_div">
+
+    <ion-label class="welcome_lbl">{{ 'auth.forgotPassword' | translate }}</ion-label>
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="fromGroup">
+
+        <app-alert></app-alert>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.emailPhoneUsername' | translate }}</ion-label>
+        <ion-input formControlName="login"
+                   required
+                   type="text"
+                   [ngClass]="{ 'is-invalid': fromGroup.controls.login.invalid && fromGroup.controls.login.touched }"
+
+        ></ion-input>
+      </ion-item>
+      <div class="validator-error"
+           *ngIf=" !submitted &&fromGroup.controls.login.dirty ||fromGroup.controls.login.touched">
+           <span  class="ion-invalid-message" *ngIf="fromGroup.controls.login.errors">
+      {{ 'common.required' | translate }}
+         </span>
+      </div>
+
+
+
+      <ion-button type="submit" expand="block" shape="round" (click)="onSubmit()">
+        {{ 'common.submit' | translate }}
+      </ion-button>
+
+    </form>
+
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,82 @@
+<ion-content>
+
+  <div class="main_content_div">
+
+    <ion-label class="welcome_lbl">{{ 'auth.signIn' | translate }}</ion-label>
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="fromGroup">
+
+
+        <app-alert></app-alert>
+
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.emailPhoneUsername' | translate }}</ion-label>
+        <ion-input formControlName="login"
+                   required
+                   type="text"
+                   [ngClass]="{ 'is-invalid': fromGroup.controls.login.invalid && fromGroup.controls.login.touched }"
+
+        ></ion-input>
+      </ion-item>
+      <div class="validator-error"
+           *ngIf=" !submitted &&fromGroup.controls.login.dirty ||fromGroup.controls.login.touched">
+           <span  class="ion-invalid-message" *ngIf="fromGroup.controls.login.errors">
+      {{ 'common.required' | translate }}
+         </span>
+      </div>
+
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.password' | translate }}</ion-label>
+        <ion-input formControlName="password" required></ion-input>
+      </ion-item>
+      <div class="validator-error"
+           *ngIf=" !submitted &&fromGroup.controls.password.dirty ||fromGroup.controls.password.touched">
+           <span  class="ion-invalid-message" *ngIf="fromGroup.controls.password.errors">
+      {{ 'common.required' | translate }}
+         </span>
+      </div>
+
+      <div class="flex_div">
+        <div class="check_flex">
+          <ion-checkbox></ion-checkbox>
+          <ion-label>{{ 'auth.rememberMe' | translate }}</ion-label>
+        </div>
+        <ion-label class="flex_lbl" [routerLink]="['../forgot']">Forgot password ?</ion-label>
+      </div>
+
+      <ion-button  type="submit" shape="round" expand="block" (click)="onSubmit()">
+        {{ 'auth.signIn' | translate }}
+      </ion-button>
+      <div class="or_div">
+        <div></div>
+        <ion-label>OR</ion-label>
+        <div></div>
+      </div>
+
+      <ion-row>
+        <ion-col size="4">
+          <ion-button color="secondary" [routerLink]="['../sign-up']" expand="block" shape="round">
+            {{ 'auth.signUp' | translate }}
+          </ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button color="secondary" [routerLink]="['../activation/tab1']" expand="block" shape="round">
+            {{ 'auth.activation' | translate }}
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-button color="secondary" [routerLink]="['../reset-password/tab1']" expand="block" shape="round">
+            {{ 'auth.resetPassword' | translate }}
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+
+
+    </form>
+
+
+  </div>
+</ion-content>

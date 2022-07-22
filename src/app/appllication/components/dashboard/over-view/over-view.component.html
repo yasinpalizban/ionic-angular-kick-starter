@@ -1,0 +1,136 @@
+<ion-content>
+  <div class="main_content_div">
+    <ion-card>
+      <ion-item class="ion-activated">
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.user' | translate }}  ({{this.overViewRows?.countPost?.users}})</ion-label>
+      </ion-item>
+      <ion-item class="ion-activated">
+        <ion-icon name="newspaper-outline" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.news' | translate }}  ({{this.overViewRows?.countPost?.news}})</ion-label>
+      </ion-item>
+      <ion-item class="ion-activated">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.contact' | translate }}  ({{this.overViewRows?.countPost?.contacts}})</ion-label>
+      </ion-item>
+      <ion-item class="ion-activated">
+        <ion-icon name="earth-outline" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.visitor' | translate }}  ({{this.overViewRows?.countPost?.visitors}})</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="receipt-outline" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.request' | translate }}  ({{this.overViewRows?.countPost?.requests}})</ion-label>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-card *ngIf="overViewRows?.requestPost">
+      <ion-item class="ion-activated">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.request' | translate }} </ion-label>
+      </ion-item>
+
+      <ion-item>
+
+        <ion-list style="width:  100%">
+
+          <ion-item *ngFor="let data of overViewRows?.requestPost;let i=index">
+            <ion-label>
+              <h2>#{{i + 1}}</h2>
+              <h3>{{data.title.substr(0, 50)}}</h3>
+              <p>{{data.createdAt}}</p>
+            </ion-label>
+          </ion-item>
+
+
+        </ion-list>
+      </ion-item>
+
+    </ion-card>
+    <ion-card *ngIf="overViewRows?.contactPost">
+      <ion-item class="ion-activated">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.contact' | translate }} </ion-label>
+      </ion-item>
+      <ion-item>
+
+        <ion-list style="width:  100%">
+          <ion-item *ngFor="let data of overViewRows?.contactPost;let i=index">
+            <ion-label>
+              <h2>#{{i + 1}}</h2>
+              <h3>{{data.title.substr(0, 50)}}</h3>
+              <p>{{data.createdAt}}</p>
+            </ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-item>
+
+    </ion-card>
+    <ion-card *ngIf="overViewRows?.newsPost">
+      <ion-item class="ion-activated">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.news' | translate }} </ion-label>
+      </ion-item>
+
+      <ion-item>
+
+        <ion-list style="width:  100%">
+          <ion-item *ngFor="let data of overViewRows?.newsPost;let i=index">
+            <ion-label>
+              <h2>#{{i + 1}}</h2>
+              <h3>{{data.title.substr(0, 50)}}</h3>
+              <p>{{data.createdAt}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+
+    </ion-card>
+    <ion-card *ngIf="overViewRows?.visitorPost">
+      <ion-item class="ion-activated">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.visitor' | translate }} </ion-label>
+      </ion-item>
+      <ion-item>
+
+        <ion-list style="width:  100%">
+
+          <ion-item *ngFor="let data of overViewRows?.visitorPost;let i=index">
+            <ion-label>
+              <h2>#{{i + 1}}</h2>
+              <h3>{{data.country.substr(0, 50)}}</h3>
+              <p>{{data.createdAt}}</p>
+            </ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-item>
+
+    </ion-card>
+    <ion-card *ngIf="overViewRows?.userPost">
+      <ion-item class="ion-activated">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.user' | translate }} </ion-label>
+      </ion-item>
+
+      <ion-item>
+
+        <ion-list style="width:  100%">
+          <ion-item *ngFor="let data of overViewRows?.userPost;let i=index">
+            <ion-label>
+              <h2>#{{i + 1}}</h2>
+              <h3>{{data.username.substr(0, 50)}}</h3>
+              <p>{{data.createdAt}}</p>
+            </ion-label>
+          </ion-item>
+
+
+        </ion-list>
+      </ion-item>
+
+    </ion-card>
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,37 @@
+
+<ion-content>
+  <div class="main_content_div">
+
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
+      <app-alert></app-alert>
+
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.key' | translate }}</ion-label>
+        <ion-input formControlName="_key"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.value' | translate }}</ion-label>
+        <ion-input formControlName="_value"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'filed.description' | translate }}</ion-label>
+        <ion-input formControlName="description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'filed.status' | translate }}</ion-label>
+        <ion-select formControlName="status" interface="action-sheet" class="custom-options">
+          <ion-select-option value="1">{{ 'filed.activate' | translate }}</ion-select-option>
+          <ion-select-option value="0">{{ 'filed.deActivate' | translate }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+    </form>
+
+  </div>
+</ion-content>

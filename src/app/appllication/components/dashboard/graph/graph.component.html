@@ -1,0 +1,88 @@
+
+<ion-content>
+
+  <div class="main_content_div">
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+      <app-alert></app-alert>
+      <ion-item>
+        <ion-label>{{ 'dashboard.type' | translate }}</ion-label>
+        <ion-select  formControlName="_type" interface="action-sheet" class="custom-options">
+          <ion-select-option value="news">{{ 'dashboard.news' | translate }}</ion-select-option>
+          <ion-select-option value="visitor">{{ 'dashboard.visitor' | translate }}</ion-select-option>
+          <ion-select-option value="request">{{ 'dashboard.request' | translate }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'dashboard.date' | translate }}</ion-label>
+        <ion-select  formControlName="date" interface="action-sheet" class="custom-options">
+          <ion-select-option value="none">    {{ 'common.none' | translate }}</ion-select-option>
+          <ion-select-option value="today">  {{ 'dashboard.today' | translate }}</ion-select-option>
+          <ion-select-option value="week">     {{ 'dashboard.lastWeek' | translate }}</ion-select-option>
+          <ion-select-option value="month">          {{ 'dashboard.lastMonth' | translate }}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'dashboard.fromDate' | translate }} </ion-label>
+        <ion-input  formControlName="fromDate" type="date"></ion-input>
+
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">{{ 'dashboard.toDate' | translate }} </ion-label>
+        <ion-input  formControlName="toDate" type="date"></ion-input>
+
+      </ion-item>
+      <ion-button type="submit"   shape="round" expand="block">
+        {{ 'common.submit' | translate }}
+      </ion-button>
+
+      <ion-item >
+        <ion-icon name="stats-chart-outline" slot="start"></ion-icon>
+        <ion-label>{{ 'dashboard.chart' | translate }}  </ion-label>
+      </ion-item>
+    </form>
+  </div>
+  <div class="main_content_div">
+
+    <ngx-charts-bar-vertical
+      [view]="[400, 400]"
+      [scheme]="colorScheme"
+      [results]="graphData?.data"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+    >
+    </ngx-charts-bar-vertical>
+  </div>
+
+
+  <div class="main_content_div">
+
+    <ngx-charts-pie-chart
+      [results]="graphData?.data"
+      [legend]="true"
+      [legendTitle]="'Product Sale Report'"
+      [view]="[400,400]"
+      [labels]="true" >
+    </ngx-charts-pie-chart>
+  </div>
+
+
+  <div class="main_content_div">
+
+    <ngx-charts-pie-grid
+      [view]="[400,400]"
+      [results]="graphData?.data" >
+    </ngx-charts-pie-grid>
+  </div>
+</ion-content>
+
+
+
+

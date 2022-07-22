@@ -1,0 +1,146 @@
+<ion-app>
+  <ion-menu   [swipeGesture]="true" side="start" contentId="app-content">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <ion-title> Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list id="inbox-list">
+        <ion-item  lines="none">
+          <ion-avatar slot="start">
+            <img [src]="this.getSantizeUrl(this.image)"  />
+          </ion-avatar >
+          <ion-label  >
+            <h3>{{this.userName}}</h3>
+            <p>{{this.userRole}}</p>
+          </ion-label>
+        </ion-item>
+
+      </ion-list>
+      <ion-accordion-group multiple="true">
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-icon slot="start" name="speedometer-outline"></ion-icon>
+            <ion-label>{{ 'layout.header.dashboard' | translate }}</ion-label>
+
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-list>
+              <ion-item (click)="onChangeRoue('../admin/over-view')"  lines="full">
+                <ion-icon slot="start" name="reader-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.overView' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item  (click)="onChangeRoue('../admin/graph')"  lines="none">
+                <ion-icon slot="start" name="stats-chart-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.graph' | translate }}
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="second">
+          <ion-item   slot="header" color="light">
+            <ion-icon slot="start" name="settings-outline"></ion-icon>
+            <ion-label >   {{ 'layout.header.setting' | translate }}</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-list>
+              <ion-item (click)="onChangeRoue('../admin/profile')"  lines="full">
+                <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.profile' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item  (click)="onChangeRoue('../admin/setting/list')"  lines="full">
+                <ion-icon slot="start" name="person-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.setting' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item (click)="onChangeRoue('../admin/visitor/list')"  lines="full">
+                <ion-icon slot="start" name="map-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.visitor' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item (click)="changeLanguage()"  lines="full">
+                <ion-icon slot="start" name="language-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.language' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item  (click)="onSignOut()" lines="none">
+                <ion-icon slot="start" name="enter-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.signOut' | translate }}
+                </ion-label>
+              </ion-item>
+            </ion-list>
+
+
+          </div>
+        </ion-accordion>
+        <ion-accordion value="third">
+          <ion-item slot="header" color="light">
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            <ion-label> {{ 'layout.header.accounts' | translate }}</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-list>
+              <ion-item (click)="onChangeRoue('../admin/group/list')" lines="full">
+                <ion-icon slot="start" name="people-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.groups' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item (click)="onChangeRoue('../admin/user/list')" lines="full">
+                <ion-icon slot="start" name="person-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.users' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item (click)="onChangeRoue('../admin/permission/list')" lines="full">
+                <ion-icon slot="start" name="shield-half-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.permissions' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item  (click)="onChangeRoue('../admin/group-permission/list')" lines="full">
+                <ion-icon slot="start" name="shuffle-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.permissionGroups' | translate }}
+                </ion-label>
+              </ion-item>
+              <ion-item (click)="onChangeRoue('../admin/user-permission/list')" lines="none">
+                <ion-icon slot="start" name="repeat-outline"></ion-icon>
+                <ion-label>
+                  {{ 'layout.header.permissionUsers' | translate }}
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="app-content"></ion-router-outlet>
+</ion-app>
+
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-button (click)="goBack()" fill="clear" slot="start">
+      <ion-icon name="arrow-back" style="font-size: 26px;color: black"></ion-icon>
+    </ion-button>
+
+    <ion-title>{{this.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button *ngIf="!confirmButton" ></ion-menu-button>
+      <ion-button *ngIf="confirmButton" (click)="onConfirmButton()"><ion-icon  name="checkmark-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,41 @@
+.main_content_div {
+
+  padding-top: 50px;
+}
+
+ion-modal {
+  align-items: end;
+  --height: 9%;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  .x{
+
+    --background:#000;
+  }
+  ion-row{
+
+    ion-button {
+      color: var(--ion-color-primary);
+      --background: transparent;
+      --background-activated: var(--ion-color-primary);
+      ion-icon{
+        color: white;
+      }
+    }
+
+  }
+
+}
+
+
+ion-modal::part(backdrop) {
+  background: unset;
+  opacity: 0;
+
+}
+
+
+
+
+
