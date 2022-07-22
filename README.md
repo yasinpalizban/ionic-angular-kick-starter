@@ -1,7 +1,7 @@
 # Ionic Angular Kick Starter
 
-The Ionic Angular project which  mobile application Build with web technology,it has a reasonable scaffolding and  used
-Ionic 6 component to build beatfull app.
+The Ionic Angular project which  mobile application Build with web technology, it has a reasonable scaffolding and  used
+Ionic 6 component to build beatfull modren apps.
 
 > Attention: To speed up project development , I suggest , to see back-end application with Codeigniter 4 ,It's  fully compatible with this project
 > </br> here is link : </br>
